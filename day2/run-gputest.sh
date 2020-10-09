@@ -7,7 +7,13 @@
 #SBATCH --account=project_2003528
 #xSBATCH --reservation=mlintro
 
+PYTHON=python3
+if [ -n "$SING_IMAGE" ]; then
+    PYTHON="singularity_wrapper exec python3"
+    echo "Using Singularity image $SING_IMAGE"
+fi
+
 module list
 
 set -xv
-srun singularity_wrapper exec python3 $*
+$PYTHON $*

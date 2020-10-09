@@ -46,7 +46,6 @@ print('Loading data begins')
 t0 = time()
 
 DATA_DIR = '/scratch/project_2003528/data/notMNIST/'
-DATA_DIR = '/scratch/dac/mvsjober/notMNIST/'
 X_train, y_train, X_test, y_test = get_notmnist(DATA_DIR)
 
 print()
@@ -131,9 +130,6 @@ print()
 print('Inference begins')
 t0 = time()
 
-#cu_X_test  = cudf.DataFrame.from_pandas(pd.DataFrame(X_test))
-
-#predictions = cu_clf.predict(cu_X_test).values_host.flatten()
 predictions = cu_clf.predict(X_test)
 predictions = [chr(x) for x in predictions+ord('A')]
 predictions = np.array(predictions)
