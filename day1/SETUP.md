@@ -23,7 +23,6 @@ We will use Jupyter Notebooks for all exercises. There are several ways to set u
 
 If you have a laptop that has Jupyter, Scikit-learn, and all the other necessary Python packages installed, it is possible to use it. Clone the Git repositories used on this course
 
-    git clone https://github.com/csc-training/python-introduction
-    git clone https://github.com/csc-training/intro-to-ml
+    git clone https://github.com/csc-training/intro-to-ml-gpu
     
 and launch Jupyter.
