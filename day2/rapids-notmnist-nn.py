@@ -46,6 +46,7 @@ print('Loading data begins')
 t0 = time()
 
 DATA_DIR = '/scratch/project_2003528/data/notMNIST/'
+DATA_DIR = '/scratch/dac/mvsjober/notMNIST/'
 X_train, y_train, X_test, y_test = get_notmnist(DATA_DIR)
 
 print()
@@ -65,15 +66,15 @@ print('Loading data done in {:.2f} seconds'.format(time()-t0))
 # the training data in a suitable data structure. Unfortunately, the
 # dataset is so large that simply creating the data structure is still
 # quite slow on the CPU. Therefore, we limit the training set to
-# 50,000 items so we won't have to wait for too long...
+# 100k items so we won't have to wait for too long...
 
 print()
-print('Creating 1-NN classifier on CPU with 50k training subset begins')
+print('Creating 1-NN classifier on CPU with 100k training subset begins')
 t0 = time()
 
 n_neighbors = 1
 clf_nn = sklearn.neighbors.KNeighborsClassifier(n_neighbors)
-clf_nn.fit(X_train[:50000], y_train[:50000])
+clf_nn.fit(X_train[:100000], y_train[:100000])
 
 print('Creating 1-NN classifier on CPU took {:.2f} seconds'.format(time()-t0))
 
@@ -112,7 +113,7 @@ print('Copying data to GPU done in {:.2f} seconds'.format(time()-t0))
 # Now we will create 1-NN classifier on GPU using RAPIDS with the full 500k dataset
 
 print()
-print('Creating 1-NN classifier on GPU with full 500k training subset begins')
+print('Creating 1-NN classifier on GPU with full >500k training set begins')
 t0 = time()
 
 n_neighbors = 1
@@ -130,7 +131,10 @@ print()
 print('Inference begins')
 t0 = time()
 
-predictions = cu_clf.predict(X_test, predict_model='GPU').values_host.flatten()
+#cu_X_test  = cudf.DataFrame.from_pandas(pd.DataFrame(X_test))
+
+#predictions = cu_clf.predict(cu_X_test).values_host.flatten()
+predictions = cu_clf.predict(X_test)
 predictions = [chr(x) for x in predictions+ord('A')]
 predictions = np.array(predictions)
 
