@@ -17,6 +17,8 @@ Classification with neural networks.
 
 ### Exercise 8
 
+Clustering and data visualization.
+
 This exercise requires a GPU-accelerated Jupyter Notebooks instance.
 
 * Exercise 08a: [Clustering](Exercise-08a.ipynb)
