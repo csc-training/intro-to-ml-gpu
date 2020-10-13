@@ -34,36 +34,51 @@ This exercise requires a GPU-accelerated Jupyter Notebooks instance.
 
 1. Login to Puhti using a training account (or your own CSC account):
 
-        ssh -l trainingxxx puhti.csc.fi
+```bash
+ssh -l trainingxxx puhti.csc.fi
+```
+
 
 2. Clone and cd to the exercise repository:
 
-        git clone https://github.com/csc-training/intro-to-ml-gpu.git
-        cd intro-to-ml-gpu/day2
+```bash
+git clone https://github.com/csc-training/intro-to-ml-gpu.git
+cd intro-to-ml-gpu/day2
+```
 
 3. Set up the module environment for Rapids
 
-        module purge
-        module load rapids/0.15-sng
+```bash
+module purge
+module load rapids/0.15-sng
+```
 
    or for Keras/TensorFlow (used in Exercise 7):
    
-        module purge
-        module load tensorflow/2.0.0
+```bash
+module purge
+module load tensorflow/2.0.0
+```
+
 
 ## Edit and submit jobs
 
 1. Edit and submit jobs:
 
-        nano rapids-test.py           # or substitute with your favorite text editor
-        sbatch run.sh rapids-test.py  # when using a training account
+```bash
+nano rapids-test.py           # or substitute with your favorite text editor
+sbatch run.sh rapids-test.py  # when using a training account
+```
 
 2. See the status of your jobs or the queue you are using:
 
-        squeue -l -u $USER
-        squeue -l -p gpu
+```bash
+squeue -l -u $USER
+squeue -l -p gpu
+```
 
 3. After the job has finished, examine the results:
 
-        less slurm-xxxxxxxx.out
-
+```bash
+less slurm-xxxxxxxx.out
+```
