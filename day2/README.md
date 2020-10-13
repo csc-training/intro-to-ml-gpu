@@ -46,7 +46,7 @@ This exercise requires a GPU-accelerated Jupyter Notebooks instance.
         module purge
         module load rapids/0.15-sng
 
-   or for Keras:
+   or for Keras/TensorFlow (used in Exercise 7):
    
         module purge
         module load tensorflow/2.0.0
@@ -55,12 +55,8 @@ This exercise requires a GPU-accelerated Jupyter Notebooks instance.
 
 1. Edit and submit jobs:
 
-        nano rapids-test.py  # or substitute with your favorite text editor
+        nano rapids-test.py           # or substitute with your favorite text editor
         sbatch run.sh rapids-test.py  # when using a training account
-
-   There is a separate slurm script for Keras (used in Exercise 7), e.g.:
-   
-        sbatch run-keras.sh keras-notmnist-mlp.py
 
 2. See the status of your jobs or the queue you are using:
 
