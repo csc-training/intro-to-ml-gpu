@@ -4,6 +4,10 @@
 
 ### Exercise 5
 
+Classification with nearest neighbors, comparing Scikit-learn (CPU) with RAPIDS (GPU) implementations.
+
+* *rapids-notmnist-nn.py*: notMNIST classification with nearest neighbours
+
 ### Exercise 6
 
 Classification with random forest and gradient boosted trees.
@@ -13,7 +17,9 @@ Classification with random forest and gradient boosted trees.
 
 ### Exercise 7
 
-Classification with neural networks.
+Classification with neural networks using Keras (TensorFlow 2).
+
+* *keras-notmnist-mlp.py*: notMNIST classification using MLP neural network
 
 ### Exercise 8
 
@@ -40,10 +46,10 @@ This exercise requires a GPU-accelerated Jupyter Notebooks instance.
         module purge
         module load rapids/0.15-sng
 
-   or for PyTorch:
+   or for Keras:
    
         module purge
-        module load pytorch/1.3.0
+        module load tensorflow/2.0.0
 
 ## Edit and submit jobs
 
@@ -52,17 +58,13 @@ This exercise requires a GPU-accelerated Jupyter Notebooks instance.
         nano rapids-test.py  # or substitute with your favorite text editor
         sbatch run.sh rapids-test.py  # when using a training account
 
-   There is a separate slurm script for PyTorch, e.g.:
+   There is a separate slurm script for Keras (used in Exercise 7), e.g.:
    
-        sbatch run-pytorch.sh pytorch_dvc_cnn_simple.py
-
-   You can also specify additional command line arguments, e.g.
-
-        sbatch run.sh tf2-dvc-cnn-evaluate.py dvc-cnn-simple.h5
+        sbatch run-keras.sh keras-notmnist-mlp.py
 
 2. See the status of your jobs or the queue you are using:
 
-        squeue -l -u trainingxxx
+        squeue -l -u $USER
         squeue -l -p gpu
 
 3. After the job has finished, examine the results:
