@@ -19,7 +19,6 @@ from tensorflow.keras.utils import to_categorical
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from distutils.version import LooseVersion as LV
 
-sys.path.append('../')
 from pml_utils import get_notmnist, show_failures
 
 print('Using Tensorflow version: {}, and Keras version: {}.'.format(

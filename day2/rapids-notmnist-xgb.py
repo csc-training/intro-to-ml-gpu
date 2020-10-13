@@ -28,6 +28,8 @@ from sklearn.metrics import (accuracy_score, confusion_matrix,
                              classification_report)
 from sklearn import __version__ as sklearn_version
 
+from pml_utils import get_notmnist
+
 print('Using xgboost version:', xgb.__version__)
 print('Using sklearn version:', sklearn_version)
 
@@ -35,36 +37,12 @@ print('Using sklearn version:', sklearn_version)
 # data, which can take a while. The data is stored as Numpy arrays in
 # host (CPU) memory.
 
-def load_not_mnist(directory, filename):
-    filepath = os.path.join(directory, filename)
-    if os.path.isfile(filepath):
-        print('Not downloading, file already exists:', filepath)
-    else:
-        if not os.path.isdir(directory):
-            os.mkdir(directory)
-        url_base = 'https://a3s.fi/mldata/'
-        url = url_base + filename
-        print('Downloading {} to {}'.format(url, filepath))
-        urllib.request.urlretrieve(url, filepath)
-    return np.load(filepath)
-
-DATA_DIR = '/scratch/project_2003528/data/notMNIST/'
-if not os.path.exists(DATA_DIR):
-    os.makedirs(DATA_DIR)
-
 print()
 print('Loading data begins')
 t0 = time()
 
-X_train = load_not_mnist(DATA_DIR,
-                         'notMNIST_large_images.npy').reshape(-1, 28*28)
-y_train = load_not_mnist(DATA_DIR, 'notMNIST_large_labels.npy')
-X_test = load_not_mnist(DATA_DIR,
-                        'notMNIST_small_images.npy').reshape(-1, 28*28)
-y_test = load_not_mnist(DATA_DIR, 'notMNIST_small_labels.npy')
-
-X_train = X_train.astype(np.float32)
-X_test = X_test.astype(np.float32)
+DATA_DIR = '/scratch/project_2003528/data/notMNIST/'
+X_train, y_train, X_test, y_test = get_notmnist(DATA_DIR)
 
 print()
 print('notMNIST data loaded: train:',len(X_train),'test:',len(X_test))

@@ -28,9 +28,6 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 from sklearn import __version__ as sklearn_version
 import sklearn.neighbors
 
-import sys
-sys.path.append('../')
-
 from pml_utils import get_notmnist
 
 print('Using cudf version:', cudf.__version__)
