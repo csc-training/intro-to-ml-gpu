@@ -82,17 +82,17 @@ print('Y_train:', Y_train.shape, Y_train.dtype)
 model = Sequential()
 
 # A simple model:
-# model.add(Dense(units=20, input_dim=28*28))
-# model.add(Activation('relu'))
+model.add(Dense(units=20, input_dim=28*28))
+model.add(Activation('relu'))
 
 # A bit more complex model:
-model.add(Dense(units=50, input_dim=28*28))
-model.add(Activation('relu'))
-model.add(Dropout(0.2))
+# model.add(Dense(units=50, input_dim=28*28))
+# model.add(Activation('relu'))
+# model.add(Dropout(0.2))
 
-model.add(Dense(units=50))
-model.add(Activation('relu'))
-model.add(Dropout(0.2))
+# model.add(Dense(units=50))
+# model.add(Activation('relu'))
+# model.add(Dropout(0.2))
 
 # The last layer needs to be like this:
 model.add(Dense(units=10, activation='softmax'))
