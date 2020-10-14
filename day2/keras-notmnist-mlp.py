@@ -109,7 +109,7 @@ epochs = 10
 history = model.fit(X_train.reshape((-1,28*28)),
                     Y_train,
                     epochs=epochs,
-                    batch_size=32,
+                    batch_size=128,
                     verbose=2)
 
 # ### Inference
