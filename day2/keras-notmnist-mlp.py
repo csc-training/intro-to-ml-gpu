@@ -43,7 +43,6 @@ else:
 
 
 DATA_DIR = '/scratch/project_2003528/data/notMNIST/'
-DATA_DIR = '/scratch/dac/mvsjober/notMNIST/'
 X_train, y_train, X_test, y_test = get_notmnist(DATA_DIR)
 
 nb_classes = 10
