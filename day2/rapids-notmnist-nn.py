@@ -4,17 +4,15 @@
 # notMNIST letters classification with nearest neighbors
 
 # In this script, we'll use nearest-neighbor classifiers
-# (https://docs.rapids.ai/api/cuml/stable/api.html#id18) to classify
+# (https://docs.rapids.ai/api/cuml/stable/api.html#id21) to classify
 # notMNIST letters using a GPU and RAPIDS (https://rapids.ai/)
 # libraries (cudf, cuml).
 #
-# **Note that a GPU is required with this notebook.**
+# **Note that a GPU is required with this script.**
 #
-# This version of the notebook has been tested with RAPIDS version
-# 0.15.
+# This version of the script has been tested with RAPIDS version 0.15.
 
 # First, the needed imports.
-
 
 import cudf
 import numpy as np
